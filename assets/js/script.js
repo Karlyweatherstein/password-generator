@@ -1,60 +1,87 @@
 // Assignment code here
-var characters = {
-  lowercase: "abcdefghijklmnopqrstuvwxyz",
-  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  special: "!@#$%^&*()",
-  numbers: "0123456789"
-
-};
 
 
-// Ask user how many characters they would like to have
-var numOfChar = function () {
-  prompt("How many characters would you like to include? Please enter a number between 8 and 128.")
-}
+function generatePassword(){
 
-numOfChar();
+  var allChar = []
+  var lower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  var number = ['1','2','3','4','5','6','7','8','9','0'];
+  var special = ['!','@','#','$','%','^','&','*','?'];
+  
 
 
+  var passwordLength = prompt("How many characters would you like to include? Please enter a number between 8 and 128.")
+    console.log(passwordLength)
 
-// //ask if they want to include lowercase
-var lower = function() {
-  var useLower = prompt("Do you want to include lowercase letters? Please type 'YES' or 'NO'.");
+  // //ask if they want to include lowercase
+  var useLower = confirm("Do you want to include lowercase letters?");
+    console.log(useLower)
 
-//validate answer
-  if (useLower === "YES" || useLower === "yes") {
-    window.alert("You have chosen YES.");
-    // use return to call it again and stop the rest of this function from running
-    // return useLower();
-  }
-  if (useLower === "NO" || useLower === "no") {
-    window.alert("You have chosen NO.");
-    // use return to call it again and stop the rest of this function from running
-    // return useLower();
-  }
-  if (useLower === "" || useLower === "null") {
-    window.alert("Please type a valid answer.");
-    // use return to call it again and stop the rest of this function from running
-    return useLower();
+  //ask if they want to include UPPERCASE
+  var useUpper = confirm("Do you want to include uppercase letters?");
+    console.log(useUpper)
+
+  //ask if they want to include numbers
+  var useNumber = confirm("Do you want to include numbers?");
+    console.log(useNumber)
+
+
     
+  //ask if they want to include special characters
+  var useSpecial = confirm("Do you want to include special characters?");
+  console.log(useSpecial)
+
+  if (useLower) {
+    allChar.push(lower)
+  }
+
+  if (useUpper) {
+    allChar.push(upper)
+  }
+
+  if (useNumber) {
+    allChar.push(number)
+  }
+
+  if (useSpecial) {
+    allChar.push(special)
   }
 
 
-};
 
-lower();
+  console.log(allChar)
+  
+  var password = [];
 
+    for (var i = 0; i < passwordLength; i++) {
+      allChar.forEach(type =>  {
+        
+      })
+      if (i < allChar.length) {
+        console.log(allChar)
+        console.log(i)
+        var randomIndex = Math.floor(Math.random() * allChar[i].length);
+        var randomChar = allChar[i][randomIndex] 
+        password += randomChar
+      }
+      
+      else {
+        var randomIndex = Math.floor(Math.random() * allChar.length);
+        var randomCharIndex = Math.floor(Math.random() * allChar[randomIndex])
+        randomChar = allChar[randomIndex][randomCharIndex]
+        password += randomChar
+        console.log(randomIndex)
+        
+      }
+      
+    }
+    console.log(password);
 
-//ask if they want to include UPPERCASE
-
-
-
-//ask if they want to include numeric
-
-
-
-//ask if they want to include special characters
-
+  
+  return password
+  
+}
 
 
 
@@ -74,10 +101,4 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-/* 
--click button then:
--ask how many characters 8-128
--ask for character types - 
-    hether or not to include lowercase, uppercase, numeric, special characters
-    One option must be selected
--Answer can be written in an alert or on the page */
+
