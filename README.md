@@ -26,4 +26,4 @@
 
 ![Mockup](assets/images/password-mockup.png)
 
-URL:
+URL: https://karlyweatherstein.github.io/password-generator/
