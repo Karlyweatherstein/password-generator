@@ -55,9 +55,6 @@ function generatePassword(){
   var password = [];
 
     for (var i = 0; i < passwordLength; i++) {
-      allChar.forEach(type =>  {
-        
-      })
       if (i < allChar.length) {
         console.log(allChar)
         console.log(i)
@@ -68,7 +65,7 @@ function generatePassword(){
       
       else {
         var randomIndex = Math.floor(Math.random() * allChar.length);
-        var randomCharIndex = Math.floor(Math.random() * allChar[randomIndex])
+        var randomCharIndex = Math.floor(Math.random() * allChar[randomIndex].length)
         randomChar = allChar[randomIndex][randomCharIndex]
         password += randomChar
         console.log(randomIndex)
