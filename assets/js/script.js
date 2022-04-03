@@ -12,6 +12,10 @@ function generatePassword(){
 
 
   var passwordLength = prompt("How many characters would you like to include? Please enter a number between 8 and 128.")
+   if(passwordLength < 8 || passwordLength > 128){
+      window.alert('Invalid password length, please try again!')
+      return generatePassword();
+   }
     console.log(passwordLength)
 
   // //ask if they want to include lowercase
